@@ -4,6 +4,8 @@ plugins {
 
     kotlin("kapt")
     alias(libs.plugins.dagger.hilt)
+
+    alias(libs.plugins.com.google.devtools.ksp)
 }
 
 android {
@@ -56,8 +58,25 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
+    //힐트
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    //네트워크
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson.converter)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.compose.runtime.livedata)
+
+    //룸
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    //코루틴
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
 
     implementation(libs.android.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

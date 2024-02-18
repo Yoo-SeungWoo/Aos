@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+
+    alias(libs.plugins.com.google.devtools.ksp)
 }
 
 android {
@@ -34,6 +36,16 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+
+    //네트워크
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson.converter)
+
+    //room
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 
     implementation(libs.android.core.ktx)
     implementation(libs.android.appcompat)
