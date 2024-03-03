@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
 
+    kotlin("kapt")
+    alias(libs.plugins.dagger.hilt)
+
     alias(libs.plugins.com.google.devtools.ksp)
 }
 
@@ -37,6 +40,10 @@ android {
 dependencies {
     implementation(project(":domain"))
 
+    //힐트
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
     //네트워크
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson.converter)
@@ -48,8 +55,6 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(libs.android.core.ktx)
-    implementation(libs.android.appcompat)
-    implementation(libs.android.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.android.test.junit)
     androidTestImplementation(libs.espresso.core)

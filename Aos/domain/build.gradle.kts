@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
 
+    kotlin("kapt")
+    alias(libs.plugins.dagger.hilt)
+
     alias(libs.plugins.com.google.devtools.ksp)
 }
 
@@ -36,6 +39,11 @@ android {
 }
 
 dependencies {
+
+    //힐트
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
     //Room
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
@@ -43,8 +51,6 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(libs.android.core.ktx)
-    implementation(libs.android.appcompat)
-    implementation(libs.android.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.android.test.junit)
     androidTestImplementation(libs.espresso.core)

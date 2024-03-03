@@ -4,8 +4,9 @@ import kotlinx.coroutines.flow.Flow
 import kr.co.kit452.android.data.remote.source.dao.NewsDao
 import kr.co.kit452.android.domain.model.NewsItemEntity
 import kr.co.kit452.android.domain.repository.NewsRepository
+import javax.inject.Inject
 
-class NewsRepositoryImpl(private val newsDao: NewsDao) : NewsRepository {
+class NewsRepositoryImpl @Inject constructor(private val newsDao: NewsDao) : NewsRepository {
     override fun observeAllNewsItems(): Flow<List<NewsItemEntity>> {
         return newsDao.observeAllNewsItems()
     }

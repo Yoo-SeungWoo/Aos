@@ -3,8 +3,9 @@ package kr.co.kit452.android.domain.usecase
 import kotlinx.coroutines.flow.Flow
 import kr.co.kit452.android.domain.model.ForecastItemEntity
 import kr.co.kit452.android.domain.repository.TotalGamumRepository
+import javax.inject.Inject
 
-class TotalUsecase(private val totalGamumRepository: TotalGamumRepository) {
+class TotalUsecase @Inject constructor(private val totalGamumRepository: TotalGamumRepository) {
     fun observeAllItems(): Flow<List<ForecastItemEntity>> {
         return totalGamumRepository.observeAllForecastItems()
     }

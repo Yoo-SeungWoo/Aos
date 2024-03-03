@@ -58,6 +58,10 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
+    //네비게이션
+    implementation(libs.navigation.compose)
+    implementation(libs.hilt.navigation.compose)
+
     //힐트
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
@@ -86,6 +90,7 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.android.test.junit)
     androidTestImplementation(libs.espresso.core)
